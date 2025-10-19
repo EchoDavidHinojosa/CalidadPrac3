@@ -2,7 +2,7 @@ package pkg;
 
 public class  Calculadora {
 
-    // Suma dos enteros
+    
     public static int suma(int a, int b) {
         return a + b;
     }
@@ -22,6 +22,6 @@ public class  Calculadora {
         if (b == 0) {
             return -1;
         }
-        return a / b; // División entera
+        return a/b; // División entera
     }
 }
