@@ -9,12 +9,13 @@ import pkg.Cuenta;
 
 class CuentaTest {
 
-    private static Cuenta cuenta; // compartida entre todos los tests
+    private static Cuenta cuenta,cuenta2; // compartida entre todos los tests
 
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
         System.out.println(">>> INICIANDO TESTS DE CUENTA");
         cuenta = new Cuenta(12345, 50);
+        cuenta2 =new Cuenta(6789,0);
         System.out.println("Saldo inicial: " + cuenta.getSaldo() + "€");
     }
 
@@ -25,7 +26,7 @@ class CuentaTest {
     }
 
     @Test
-    void reintegro() {
+    void cuenta1() {
         System.out.println("\n[Test] reintegro de 200");
         cuenta.reintegrar(200);
         System.out.println("Saldo actual: " + cuenta.getSaldo() + "€");
@@ -33,5 +34,16 @@ class CuentaTest {
         cuenta.reintegrar(200);
         assertEquals(-250, cuenta.getSaldo(), "El saldo debe ser -250 después del proceso");
     }
-
+    @Test
+    void cuenta2() {
+        System.out.println("\n[Test] reintegro de 200");
+        cuenta.reintegrar(350);
+        System.out.println("Saldo cuenta2 actual: " + cuenta.getSaldo() + "€");
+        cuenta.reintegrar(150);
+        System.out.println("Saldo cuenta2 actual: " + cuenta.getSaldo() + "€");
+        cuenta.ingresar(50);
+        
+        assertEquals(-450, cuenta.getSaldo(), "El saldo debe ser cuenta2 -450 después del proceso");
+    }
+    
 }
