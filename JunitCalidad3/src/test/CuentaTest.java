@@ -36,14 +36,18 @@ class CuentaTest {
     }
     @Test
     void cuenta2() {
-        System.out.println("\n[Test] reintegro de 200");
-        cuenta.reintegrar(350);
-        System.out.println("Saldo cuenta2 actual: " + cuenta.getSaldo() + "€");
-        cuenta.reintegrar(150);
-        System.out.println("Saldo cuenta2 actual: " + cuenta.getSaldo() + "€");
-        cuenta.ingresar(50);
         
-        assertEquals(-450, cuenta.getSaldo(), "El saldo debe ser cuenta2 -450 después del proceso");
+        cuenta2.reintegrar(350);
+        System.out.println("Saldo cuenta2 actual: " + cuenta2.getSaldo() + "€");
+        cuenta2.reintegrar(200);
+        System.out.println("Saldo cuenta2 actual: " + cuenta2.getSaldo() + "€");
+        cuenta2.reintegrar(150);
+        System.out.println("Saldo cuenta2 actual: " + cuenta2.getSaldo() + "€");
+        cuenta2.ingresar(50);
+        cuenta2.reintegrar(100);
+        System.out.println("Saldo cuenta2 actual: " + cuenta2.getSaldo() + "€");
+        
+        assertEquals(-450, cuenta2.getSaldo(), "El saldo debe ser cuenta2 -450 después del proceso");
     }
     
 }

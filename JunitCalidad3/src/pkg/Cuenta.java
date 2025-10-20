@@ -22,7 +22,7 @@ public class Cuenta {
             saldo += cantidad;
     }
     public boolean reintegrar(int cantidad) {
-        if (saldo - cantidad <= -500) {
+        if (saldo - cantidad < -500) {
             System.out.println("Fondos insuficientes (saldo " + saldo + "€) en la cuenta " + numero + " para el reintegro de " + cantidad + "€");
             return false;
         }
